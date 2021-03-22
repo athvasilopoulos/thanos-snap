@@ -10,7 +10,7 @@ The project can be built using CMake. The procedure is the following:
 - Download [CMake](https://cmake.org/download/)
 - Clone the repository
 - Launch CMake. In the first line navigate to the project directory and in the second line enter where you want all the compiler's stuff to live, for example a new folder inside the directory named "build".
-- Click configure and choose your preferred compiler/generator (the project were developed using Visual Studio) 
+- Click configure and choose your preferred compiler/generator (the project was developed using Visual Studio) 
 - Click on generate to create the project
 
 ## Game description
