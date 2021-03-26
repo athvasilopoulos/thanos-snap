@@ -32,14 +32,13 @@ void Camera::update() {
     // Reset mouse position for next frame
     glfwSetCursorPos(window, width / 2, height / 2);
 
-    // Task 5.3: Compute new horizontal and vertical angles, given windows size
-    //*/
+    // Compute new horizontal and vertical angles, given windows size
     // and cursor position
     horizontalAngle += mouseSpeed * float(width / 2 - xPos);
     verticalAngle += mouseSpeed * float(height / 2 - yPos);
 
-    // Task 5.4: right and up vectors of the camera coordinate system
-    // use spherical coordinates
+    // Right and up vectors of the camera coordinate system
+    // using spherical coordinates
     direction = vec3(
         cos(verticalAngle) * sin(horizontalAngle),
         sin(verticalAngle),
@@ -56,7 +55,7 @@ void Camera::update() {
     // Up vector
     up = cross(right, direction);
 
-    // Task 5.5: update camera position using the direction/right vectors
+    // Update camera position using the direction/right vectors
     // Move forward
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
         position += vec3(direction.x, 0, direction.z) * deltaTime * speed;
@@ -74,7 +73,7 @@ void Camera::update() {
         position -= vec3(right.x, 0, right.z) * deltaTime * speed;
     }
 
-    // Task 5.6: handle zoom in/out effects
+    // Handle zoom in/out effects
     if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
         FoV -= fovSpeed;
     }
@@ -82,17 +81,13 @@ void Camera::update() {
         FoV += fovSpeed;
     }
 
-    // Task 5.7: construct projection and view matrices
+    // Construct projection and view matrices
     projectionMatrix = perspective(radians(FoV), 4.0f / 3.0f, 0.1f, 100.0f);
     viewMatrix = lookAt(
         position,
         position + direction,
         up
     );
-    //*/
-
-    // Homework XX: perform orthographic projection
-
-    // For the next frame, the "last time" will be "now"
+    
     lastTime = currentTime;
 }
