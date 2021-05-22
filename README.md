@@ -4,6 +4,7 @@ The goal of this project is to recreate the well known "Thanos Snap" special eff
 The project is currently in alpha version, with performance and visual upgrades on the works.
 
 <img src=fig/kill-effect.gif width="600">
+
 ## Build instructions
 
 The project can be built using CMake. The procedure is the following:
